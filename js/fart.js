@@ -24,10 +24,24 @@ let seedWord = generateRandomWord();
 seedWordElement.textContent = seedWord;
 previousGuesses.push(seedWord);
 
+// Listen for the enter key pressed inside the input text field
+document.getElementById('input').addEventListener('keypress', function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    console.log(event);
+    gameRules();
+  }
+});
+
 // Listen for clicks on the button
 buttonElement.addEventListener("click", () => {
-  
-  // Get the input word and chage it to lowercase
+  gameRules();
+});
+
+
+// Function to get the input word and process the game rules
+function gameRules(){
+    // Get the input word and chage it to lowercase
   let inputWord = inputElement.value;
   inputWord = inputWord.toLowerCase();
 
@@ -81,7 +95,7 @@ buttonElement.addEventListener("click", () => {
     // Display an error message
     alert("Try again! "+ errorCode);
   }
-});
+}
 
 // Function to generate a random four-letter word
 function generateRandomWord() {

@@ -33,11 +33,6 @@ document.getElementById('input').addEventListener('keypress', function(event) {
   }
 });
 
-// Listen for clicks on the button
-buttonElement.addEventListener("click", () => {
-  gameRules();
-});
-
 
 // Function to get the input word and process the game rules
 function gameRules(){
@@ -83,12 +78,15 @@ function gameRules(){
     if (inputWord === "fart") {
       // Remove the input element and button
       inputElement.remove();
-      buttonElement.remove();
 
       // Play a fart sound
       var audio = new Audio('./audio_file.mp3');
       audio.play();
-      alert("You win!");
+
+      // Tell the user they've won!
+      // alert("You win!");
+      guessElement.textContent = "FART :)";
+
       return;
     }
   } else {

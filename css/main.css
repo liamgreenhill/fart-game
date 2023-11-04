@@ -1,7 +1,7 @@
 :root {
 	--primary: #fafafa;
 	--secondary: #afafaf;
-	--tertiary: #344334;
+	--tertiary: #60ba60;
 	--black: #ffffff;
 	--white: #010101;
 	--bg: #123456;
@@ -9,6 +9,7 @@
 
 :root {
     --content-width: 40rem;
+    --input-width: 8rem;
     --body-padding: 6.4rem;
     --page-padding: 1.6rem;
     --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -43,4 +44,18 @@ div#word_list {
 	border-top: 0.2rem solid var(--secondary);
 	font-family: var(--font-family--mono);
 	padding-top: var(--page-padding);
+}
+
+input#input {
+    margin-top: var(--quarter-space);
+    font-family: var(--font-family--mono);
+    font-size: var(--font-size-medium);
+    width: var(--input-width);
+
+}
+
+div#footer {
+    color: var(--tertiary);
+    font-size: var(--font-size-xx-small);
+    margin-top: auto;
 }

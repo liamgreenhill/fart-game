@@ -24,6 +24,7 @@ let seedWord = generateRandomWord();
 seedWordElement.textContent = seedWord;
 previousGuesses.push(seedWord);
 
+
 // Listen for the enter key pressed inside the input text field
 document.getElementById('input').addEventListener('keypress', function(event) {
   if (event.keyCode === 13) {
@@ -32,7 +33,6 @@ document.getElementById('input').addEventListener('keypress', function(event) {
     gameRules();
   }
 });
-
 
 // Function to get the input word and process the game rules
 function gameRules(){
@@ -76,23 +76,28 @@ function gameRules(){
 
     // Check if the player has won
     if (inputWord === "fart") {
-      // Remove the input element and button
-      inputElement.remove();
-
-      // Play a fart sound
-      var audio = new Audio('./audio_file.mp3');
-      audio.play();
-
-      // Tell the user they've won!
-      // alert("You win!");
-      guessElement.textContent = "FART :)";
-
+      winner(guessElement);
       return;
     }
   } else {
     // Display an error message
     alert("Try again! "+ errorCode);
   }
+}
+
+// Function to tell the user they've won and show scores
+
+function winner(guessElement) {
+    // Remove the input element and button
+    inputElement.remove();
+
+    // Tell the user they've won!
+    guessElement.textContent = "FART :) in " + (previousGuesses.length - 1) + " guesses!";
+
+    // Play a fart sound
+    var audio = new Audio('./audio_file.mp3');
+    audio.play();
+
 }
 
 // Function to generate a random four-letter word

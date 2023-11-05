@@ -20,6 +20,9 @@ console.log(errorCode);
 // Choose a random four-letter word from the list of eligible English words
 let seedWord = generateRandomWord();
 
+// For testing the end state easily, start with 'fact'
+// let seedWord = "fact";
+
 // Display the seed word on the screen
 seedWordElement.textContent = seedWord;
 previousGuesses.push(seedWord);
@@ -50,16 +53,11 @@ function gameRules(){
     guessElement.id = previousGuesses.length + 1;
     guessElement.textContent = inputWord;
 
-
     // Get the word list element
     const wordListElement = document.querySelector("#word_list");
 
     // Append the guess element to the word list element
     wordListElement.appendChild(guessElement);
-
-
-    // Append the guess element to the body of the document
-    // document.body.appendChild(guessElement);
 
     // Append the guess word to the array of previous guesses
     previousGuesses.push(inputWord);
@@ -94,6 +92,10 @@ function winner(guessElement) {
     // Tell the user they've won!
     guessElement.textContent = "FART :) in " + (previousGuesses.length - 1) + " guesses!";
 
+    // Share the score
+    const shareButton = document.querySelector('#share-score-button');
+    shareButton.dataset.title = guessElement.textContent;
+
     // Play a fart sound
     var audio = new Audio('./audio_file.mp3');
     audio.play();
@@ -121,14 +123,14 @@ function validateInputWord(seedWord, inputWord) {
 
   // Check if the input word appears in previous guesses
   if (previousGuesses.includes(inputWord)) {
-    errorCode = "You've already used that word"
+    errorCode = "You've already used that word."
     console.log(errorCode);
     return false;
   }
 
   // Check if the input word is in the list of eligible English words
   if (!eligibleWords.includes(inputWord)) {
-    errorCode = "Your word isn't in our dictionary"
+    errorCode = "Your word isn't in our dictionary."
     console.log(errorCode);
     return false;
   }
@@ -142,7 +144,7 @@ function validateInputWord(seedWord, inputWord) {
   }
 
   if (matchingLetters < 3) {
-    errorCode = "Too many letters have changed position"
+    errorCode = "Too many letters have changed position."
     console.log(errorCode);
     return false;
   }

@@ -25,6 +25,7 @@
     --base-space: 1.25em;
     --half-space: calc(var(--base-space) / 2);
     --quarter-space: calc(var(--base-space) / 4);
+    --eighth-space: calc(var(--base-space) / 8);
     --double-space: calc(var(--base-space) * 2);
 }
 
@@ -59,3 +60,12 @@ div#footer {
     font-size: var(--font-size-xx-small);
     margin-top: auto;
 }
+button#share-score-button {
+    font-family: var(--font-family--mono);
+    font-size: var(--font-size-small);
+    color: var(--primary);
+    background-color: var(--bg);
+    border: var(--eighth-space) solid var(--primary);
+    padding: var(--half-space);
+    text-decoration: underline;
+    margin-top: var(--base-space);

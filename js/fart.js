@@ -94,7 +94,7 @@ function winner(guessElement) {
 
     // Share the score
     const shareButton = document.querySelector('#share-score-button');
-    shareButton.dataset.title = guessElement.textContent;
+    shareButton.dataset.title = guessElement.textContent + ' Can you get it in less? Play here: ';
 
     // Play a fart sound
     var audio = new Audio('./audio_file.mp3');

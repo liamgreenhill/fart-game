@@ -18,14 +18,83 @@ let errorCode = "Guru Meditation";
 console.log(errorCode);
 
 // Choose a random four-letter word from the list of eligible English words
-let seedWord = generateRandomWord();
+// let seedWord = generateRandomWord();
 
 // For testing the end state easily, start with 'fact'
 // let seedWord = "fact";
 
+const jsonData = [
+  {
+    "word": "hell",
+    "timestamp": 1667823600000
+  },
+  {
+    "word": "lien",
+    "timestamp": 1668009600000
+  },
+  {
+    "word": "rank",
+    "timestamp": 1668195600000
+  },
+  {
+    "word": "took",
+    "timestamp": 1668381600000
+  },
+  {
+    "word": "seat",
+    "timestamp": 1668567600000
+  },
+  {
+    "word": "beef",
+    "timestamp": 1668753600000
+  },
+  {
+    "word": "duct",
+    "timestamp": 1668939600000
+  },
+  {
+    "word": "pair",
+    "timestamp": 1669125600000
+  },
+  {
+    "word": "pins",
+    "timestamp": 1669311600000
+  },
+  {
+    "word": "tone",
+    "timestamp": 1669497600000
+  },
+  {
+    "word": "duds",
+    "timestamp": 1669683600000
+  },
+  {
+    "word": "sofa",
+    "timestamp": 1669869600000
+  },
+  {
+    "word": "spam",
+    "timestamp": 1670055600000
+  },
+  {
+    "word": "bowl",
+    "timestamp": 1670241600000
+  }
+];
+
+// Get the current timestamp in UTC.
+const now = new Date().getTime();
+
+// Find the item with a timestamp less than or equal to `now`.
+const seedWordItem = jsonData.find(item => item.timestamp <= now);
+
+// Extract the seed word from the item.
+let seedWord = seedWordItem.word;
+
 // Display the seed word on the screen
 seedWordElement.textContent = seedWord;
 previousGuesses.push(seedWord);
+
 
 
 // Listen for the enter key pressed inside the input text field
@@ -102,7 +171,7 @@ function winner(guessElement) {
 
 }
 
-// Function to generate a random four-letter word
+// Function to generate a random four-letter word <<< not in use - getting seed word from json data above
 function generateRandomWord() {
 
   // Generate a random number from 0 to the length of the list

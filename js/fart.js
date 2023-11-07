@@ -26,67 +26,72 @@ console.log(errorCode);
 const jsonData = [
   {
     "word": "hell",
-    "timestamp": 1667823600000
+    "timestamp": 1699193405468
   },
   {
     "word": "lien",
-    "timestamp": 1668009600000
-  },
+    "timestamp": 1699318800000
+   },
   {
     "word": "rank",
-    "timestamp": 1668195600000
+    "timestamp": 1699405200000
   },
   {
     "word": "took",
-    "timestamp": 1668381600000
+    "timestamp": 1699491600000
   },
   {
     "word": "seat",
-    "timestamp": 1668567600000
+    "timestamp": 1699578000000
   },
   {
     "word": "beef",
-    "timestamp": 1668753600000
+    "timestamp": 1699664400000
   },
   {
     "word": "duct",
-    "timestamp": 1668939600000
+    "timestamp": 1699750800000
   },
   {
     "word": "pair",
-    "timestamp": 1669125600000
+    "timestamp": 1699837200000
   },
   {
     "word": "pins",
-    "timestamp": 1669311600000
+    "timestamp": 1699923600000
   },
   {
     "word": "tone",
-    "timestamp": 1669497600000
+    "timestamp": 1700010000000
   },
   {
     "word": "duds",
-    "timestamp": 1669683600000
+    "timestamp": 1700096400000
   },
   {
     "word": "sofa",
-    "timestamp": 1669869600000
+    "timestamp": 1700182800000
   },
   {
     "word": "spam",
-    "timestamp": 1670055600000
+    "timestamp": 1700269200000
   },
   {
     "word": "bowl",
-    "timestamp": 1670241600000
+    "timestamp": 1700355600000
   }
 ];
 
 // Get the current timestamp in UTC.
-const now = new Date().getTime();
+// let now = new Date().getTime();
+let then = new Date().getTime() - 186000000;
 
-// Find the item with a timestamp less than or equal to `now`.
-const seedWordItem = jsonData.find(item => item.timestamp <= now);
+console.log(then);
+
+// Find the item with a timestamp greater than or equal to `then` where then = 1am today
+const seedWordItem = jsonData.find(item => item.timestamp >= then);
+
+console.log(seedWordItem);
 
 // Extract the seed word from the item.
 let seedWord = seedWordItem.word;

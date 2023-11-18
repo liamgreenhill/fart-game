@@ -109,17 +109,17 @@ console.log(then);
 
 // Find the item with a timestamp greater than or equal to `then` where then = 1am today
 const seedWordItem = jsonData.find(item => item.timestamp >= then);
-
 console.log(seedWordItem);
 
-// Extract the seed word from the item.
+// For testing the end state easily, start with 'fact'
+// let seedWord = "fact";
+
+// For production, extract the seed word for today from the seedWordItem.
 let seedWord = seedWordItem.word;
 
 // Display the seed word on the screen
 seedWordElement.textContent = seedWord;
 previousGuesses.push(seedWord);
-
-
 
 // Listen for the enter key pressed inside the input text field
 document.getElementById('input').addEventListener('keypress', function(event) {
@@ -177,7 +177,6 @@ function gameRules(){
 }
 
 // Function to tell the user they've won and show scores
-
 function winner(guessElement) {
     // Remove the input element and button
     inputElement.remove();

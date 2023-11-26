@@ -99,7 +99,11 @@ const jsonData = [
   },
   {
     "word": "bowl",
-    "timestamp": 1700355600000
+    "timestamp": 1701005554000
+  },
+  {
+    "word": "tone",
+    "timestamp": 1701191554000
   }
 ];
 
@@ -178,26 +182,28 @@ function gameRules(){
 
 // Function to tell the user they've won and show scores
 function winner(guessElement) {
-    // Remove the input element and button
-    inputElement.remove();
+  // Remove the input element and button
+  inputElement.remove();
 
-    // Calculate the score
-    scoreForToday = previousGuesses.length - 1;
+  // Calculate the score
+  scoreForToday = previousGuesses.length - 1;
 
-    // Tell the user they've won!
-    guessElement.textContent = "FART :) in " + scoreForToday + " guesses!";
+  // Tell the user they've won!
+  guessElement.textContent = "FART :) in " + scoreForToday + " guesses!";
 
-    // Share the score
-    const shareButton = document.querySelector('#share-score-button');
-    shareButton.dataset.title = guessElement.textContent + ' Can you get it in less? Play here: ';
+  // Share the score
+  const shareButton = document.querySelector('#share-score-button');
+  shareButton.dataset.title = guessElement.textContent + ' Can you get it in less? Play here: ';
 
-    // Play a fart sound
-    var audio = new Audio('./audio_file.mp3');
-    audio.play();
+  // Play a fart sound
+  var audio = new Audio('./audio_file.mp3');
+  audio.play();
 
-    // Store score for today
-    let currentDateString = currentDate.toISOString().split('T')[0];
-    localStorage.setItem(currentDateString, scoreForToday);
+  // Store score for today
+  let currentDateString = currentDate.toISOString().split('T')[0];
+  localStorage.setItem(currentDateString, scoreForToday);
+  console.log("scoreForToday", scoreForToday);    
+}
 
     console.log("scoreForToday", scoreForToday);    
 }
